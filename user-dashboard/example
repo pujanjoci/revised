@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Auction Website</title>
+    <!-- Include CSS and JavaScript files here -->
+</head>
+<body>
+    <!-- Header section (for logo, navigation, and login/register buttons) -->
+    <header>
+        <!-- Logo and Navigation -->
+        <!-- Login/Register buttons -->
+    </header>
+
+    <!-- Featured Auctions section -->
+    <section id="featured-auctions">
+        <!-- Featured auctions content -->
+    </section>
+
+    <!-- Auction Listings section -->
+    <section id="auction-listings">
+        <!-- Filter options -->
+        <!-- List of available auctions -->
+    </section>
+
+    <!-- Auction Details section -->
+    <section id="auction-details">
+        <!-- Item description -->
+        <!-- Current highest bid -->
+        <!-- Place a bid button -->
+        <!-- Seller information -->
+    </section>
+
+    <!-- User Registration and Login sections -->
+    <section id="user-registration">
+        <!-- Registration form -->
+    </section>
+    
+    <section id="user-login">
+        <!-- Login form -->
+        <!-- Forgot password option -->
+    </section>
+
+    <!-- Contact Us section -->
+    <section id="contact-us">
+        <!-- Contact form -->
+    </section>
+
+    <!-- Include your JavaScript at the end of the body to ensure it can interact with the HTML elements -->
+    <!-- Include your CSS styles as well -->
+</body>
+</html>

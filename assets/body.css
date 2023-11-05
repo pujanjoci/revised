@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 30vh;
+    width: 100%;
+    background-image: url('../assets/istockphoto.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 10px solid transparent;
+    z-index: -1;
+}

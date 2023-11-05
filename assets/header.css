@@ -1,0 +1,67 @@
+header {
+    background-color: #08080868;
+    color: #fff;
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo a {
+    text-decoration: none;
+    color: #e6e6e6ce;
+    margin-left: 10px;
+}
+
+#logo img {
+    width: 120px;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #b8b8b8c8;
+}
+
+#login-register button {
+    background-color: #396593b0;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+#login-register button:hover {
+    background-color: #275e9ad2;
+}
+
+#user-info-and-logout {
+    display: flex;
+    align-items: center;
+}
+
+#user-info {
+    margin-right: 10px;
+}
+
+#logout-button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

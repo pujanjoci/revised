@@ -1,0 +1,141 @@
+.login-container {
+    margin: auto;
+    width: 15%;
+    text-align: center;
+    margin-top: 10%;
+    padding: 20px;
+    border: 2px solid rgba(51, 133, 0, 0.178);
+    border-radius: 45px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.522);
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.444);
+}
+
+.input-field {
+    margin: 12px 0;
+    position: relative;
+}
+
+.input-box {
+    width: 100%;
+    height: 50px;
+    font-size: 15px;
+    color: #040404;
+    border: none;
+    border-radius: 10px;
+    padding: 7px 45px 0 20px;
+    background: rgba(175, 122, 122, 0.329);
+    backdrop-filter: blur(2px);
+    outline: none;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+}
+
+#password {
+    padding-right: 10px;
+    /* Add space for the eye icon */
+}
+
+#fa-eye {
+    position: absolute;
+    top: 55%;
+    left: 85%;
+    right: 1px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+}
+.remember {
+    display: flex;
+    margin: 5px 0px 7px 0px;
+    color: #000;
+}
+
+.check {
+    margin-right: 8px;
+    margin-bottom: 12px;
+    width: 14px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #25863a93;
+}
+
+input[type="submit"]:active {
+    background-color: #1f5f298c;
+    animation: shakeAndShrink 0.5s ease-in-out;
+    /* Apply the animation on click */
+}
+
+@keyframes shakeAndShrink {
+
+    0%,
+    100% {
+        transform: scale(1);
+        /* Start and end with normal size */
+    }
+
+    25% {
+        transform: scale(0.85) translateX(-2px);
+        /* Shrink and move left */
+    }
+
+    50% {
+        transform: scale(1.05) translateY(-5px);
+        /* Enlarge and move up */
+    }
+
+    75% {
+        transform: scale(0.95) translateX(2px);
+        /* Shrink and move right */
+    }
+}
+
+.forgot {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.noaccount {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    margin-top: 15px;
+}

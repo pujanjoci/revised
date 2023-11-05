@@ -1,0 +1,49 @@
+.home-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.container {
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+form {
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 15%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background-color: #f9f9f9;
+    text-align: left;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+input {
+    width: 92%;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    width: 40%;
+    padding: 10px;
+    margin-left: 30%;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#message {
+    color: red;
+    margin-top: 10px;
+}

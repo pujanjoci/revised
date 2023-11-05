@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Password Reset</title>
+    <link rel="stylesheet" type="text/css" href="../assets/forgot.css">
+</head>
+
+<body>
+    <a href="index.php" class="home-icon">
+        <i class="fas fa-home"></i>
+    </a>
+    <div class="container">
+        <form id="form1">
+            <h2>Step 1: Send Reset Code</h2>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="button" id="sendCode">Send Code</button>
+        </form>
+
+        <form id="form2" style="display: none;">
+            <h2>Step 2: Verify Reset Code</h2>
+            <input type="text" id="resetCode" placeholder="Enter the reset code" required>
+            <button type="button" id="verifyCode">Verify Code</button>
+        </form>
+
+        <form id="form3" style="display: none;">
+            <h2>Step 3: Reset Password</h2>
+            <input type="password" id="newPassword" placeholder="Enter new password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm new password" required>
+            <button type="button" id="updatePassword">Update Password</button>
+        </form>
+
+        <div id="message"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form1 = document.getElementById("form1");
+            const form2 = document.getElementById("form2");
+            const form3 = document.getElementById("form3");
+            const message = document.getElementById("message");
+            let userEmail;
+
+            function showForm(show, hide1, hide2) {
+                show.style.display = "block";
+                hide1.style.display = "none";
+                hide2.style.display = "none";
+            }
+
+            function sendAjaxRequest(data, callback) {
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", "forgot.php", true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        callback(xhr.responseText);
+                    }
+                };
+                xhr.send(data);
+            }
+
+            document.getElementById("sendCode").addEventListener("click", function () {
+                const email = document.getElementById("email").value;
+                userEmail = email;
+                const data = "email=" + email + "&action=sendCode";
+                sendAjaxRequest(data, function (response) {
+                    if (response === "success") {
+                        showForm(form2, form1, form3);
+                        message.innerHTML = "";
+                    } else {
+                        message.innerHTML = "Invalid email address.";
+                        setTimeout(function () {
+                            message.innerHTML = "";
+                        }, 5000);
+                    }
+                });
+            });
+
+            document.getElementById("verifyCode").addEventListener("click", function () {
+                const resetCode = document.getElementById("resetCode").value;
+                const data = "email=" + userEmail + "&resetCode=" + resetCode + "&action=verifyCode";
+                sendAjaxRequest(data, function (response) {
+                    if (response === "success") {
+                        showForm(form3, form1, form2);
+                        message.innerHTML = "";
+                    } else {
+                        message.innerHTML = "Invalid reset code.";
+                        setTimeout(function () {
+                            message.innerHTML = "";
+                        }, 5000);
+                    }
+                });
+            });
+
+            document.getElementById("updatePassword").addEventListener("click", function () {
+                const newPassword = document.getElementById("newPassword").value;
+                const confirmPassword = document.getElementById("confirmPassword").value;
+
+                if (newPassword !== confirmPassword) {
+                    message.innerHTML = "Passwords do not match.";
+                    return;
+                }
+
+                const data = "email=" + userEmail + "&newPassword=" + newPassword + "&action=updatePassword";
+                sendAjaxRequest(data, function (response) {
+                    if (response === "success") {
+                        showForm(form1, form2, form3);
+                        message.innerHTML = "Password updated successfully.";
+                        setTimeout(function () {
+                            message.innerHTML = ""; // Clear the message after 5 seconds
+                        }, 5000);
+                    } else {
+                        message.innerHTML = "Password update failed.";
+                        setTimeout(function () {
+                            message.innerHTML = ""; // Clear the message after 5 seconds
+                        }, 5000);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
