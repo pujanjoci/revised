@@ -186,7 +186,7 @@
             width: calc(20.33% - 20px);
             padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 25px;
+            border-radius: 5%;
             background-color: #f5f5f5;
             margin-right: 2%;
             overflow: hidden;
@@ -213,7 +213,7 @@
         .item-image {
             max-width: 100%;
             height: auto;
-            border-radius: 25px;
+            border-radius: 10%;
         }
 
         .view-button {
@@ -254,15 +254,15 @@
             $searchTerm = isset($_GET['search-term']) ? $_GET['search-term'] : '';
 
             if (!empty($searchTerm)) {
-                $sql = "SELECT id, item_name, item_image FROM items WHERE item_name LIKE '%$searchTerm%'";
+                $sql = "SELECT id, item_name, item_image FROM items WHERE item_name LIKE '%$searchTerm%' ORDER BY RAND()";
             } else {
-                $sql = "SELECT id, item_name, item_image FROM items";
+                $sql = "SELECT id, item_name, item_image FROM items ORDER BY RAND()";
             }
 
             $result = $con->query($sql);
 
             if (!$result) {
-                die("SQL query error: " . $conn->error);
+                die("SQL query error: " . $con->error);
             }
 
             if ($result->num_rows > 0) {
@@ -270,6 +270,11 @@
                     $item_id = $row['id'];
                     $itemName = $row['item_name'];
                     $itemImage = $row['item_image'];
+
+                    // Check if the current item_id is the one in the URL, and skip it
+                    if (isset($_GET['item_id']) && $_GET['item_id'] == $item_id) {
+                        continue; // Skip this iteration of the loop
+                    }
 
                     echo "<div class='item'>";
                     echo "<div class='item-image-container'>";
@@ -285,7 +290,6 @@
                 echo "<p class='no-items-message'>No items found.</p>";
             }
             ?>
-
         </div>
 
 

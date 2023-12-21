@@ -1,3 +1,25 @@
+<?php
+// Assuming the main content files are in the same directory as this PHP file
+$contentDirectory = __DIR__ . '/content/';
+
+// Define an array that maps the link URL to the corresponding file to include
+$linkToFileMapping = [
+    'profile/profile.php' => 'profile.php',
+    '../dashboard/dashboard.php' => 'dashboard.php',
+    'sales/sales.php' => 'sales.php',
+    '../items/items.php' => 'items.php',
+];
+
+if (isset($_GET['page']) && array_key_exists($_GET['page'], $linkToFileMapping)) {
+    $currentPage = $_GET['page'];
+} else {
+    // Default to the first page if no page is specified
+    $currentPage = 'profile/profile.php';
+}
+
+?>
+
+
 <body>
     <div class="wrapper">
         <aside id="sidebar">
@@ -9,25 +31,25 @@
                 </div>
                 <ul id="sidebar-nav">
                     <li class="sidebar-item">
-                        <a href="profile/profile.php" class="sidebar-link active">
+                        <a href="?page=profile/profile.php" class="sidebar-link <?php echo ($currentPage === 'profile/profile.php') ? 'active' : ''; ?>">
                             <i class="fa-solid fa-list pe-2"></i>
                             Profile
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="../dashboard/dashboard.php" class="sidebar-link">
+                        <a href="?page=../dashboard/dashboard.php" class="sidebar-link <?php echo ($currentPage === '../dashboard/dashboard.php') ? 'active' : ''; ?>">
                             <i class="fa-solid fa-folder-open pe-2"></i>
                             Dashboard
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="sales/sales.php" class="sidebar-link">
+                        <a href="?page=sales/sales.php" class="sidebar-link <?php echo ($currentPage === 'sales/sales.php') ? 'active' : ''; ?>">
                             <i class="fa-solid fa-chart-line pe-2"></i>
                             Sales
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="../items/items.php" class="sidebar-link">
+                        <a href="?page=../items/items.php" class="sidebar-link <?php echo ($currentPage === '../items/items.php') ? 'active' : ''; ?>">
                             <i class="fa-solid fa-boxes-stacked pe-2"></i>
                             Items
                         </a>
@@ -47,18 +69,17 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </nav>
-            <div id="content-container"></div>
+            <div id="content-container">
+                <!-- Content will be loaded here dynamically -->
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="sidemenu.js"></script>
     <script>
         $(document).ready(function() {
-            var defaultLink = $('.sidebar-link.active');
-            var defaultHref = defaultLink.attr('href');
-            $('#content-container').load(defaultHref);
-
-            defaultLink.closest('.sidebar-item').addClass('active');
+            // Load the default content
+            $('#content-container').load('<?php echo $currentPage; ?>');
 
             $('.sidebar-link').on('click', function(e) {
                 e.preventDefault();
@@ -71,6 +92,4 @@
             });
         });
     </script>
-
-
 </body>

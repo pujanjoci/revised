@@ -3,18 +3,34 @@
 
 <head>
     <title>Rachit Auction</title>
-    <link rel="stylesheet" href="../assets/header.css">
-    <link rel="stylesheet" href="../assets/body.css">
-    <link rel="stylesheet" href="../assets/intro.css">
-    <link rel="stylesheet" href="../assets/items.css">
-    <link rel="stylesheet" href="../assets/contactus.css">
-    <link rel="icon" href="../assets/rachitlogo.png" type="image/png">
-    <link rel="shortcut icon" href="../assets/rachitlogo.png" type="image/png">
+    <link rel="stylesheet" href="assets/header.css">
+    <link rel="stylesheet" href="assets/body.css">
+    <link rel="stylesheet" href="assets/intro.css">
+    <link rel="stylesheet" href="assets/contactus.css">
+    <link rel="stylesheet" href="assets/items.css">
+    <link rel="icon" href="assets/rachitlogo.png" type="image/png">
+    <link rel="shortcut icon" href="assets/rachitlogo.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico&display=swap">
 
 
     <script src="roll.js"></script>
+    <style>
+        #user-info a {
+            color: #777;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+        }
+
+        #user-info a:hover {
+            background-color: #ddd;
+            border-radius: 20px;
+        }
+    </style>
 </head>
 
 <?php
@@ -31,7 +47,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     <header>
         <div id="logo">
             <a href="index.php">
-                <img src="../assets/logo.png" alt="Your Logo">
+                <img src="assets/logo.png" alt="Your Logo">
             </a>
         </div>
 
@@ -45,11 +61,11 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
         <?php
         if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
             echo '<div id="user-info-and-logout">';
-            echo '<div id="user-info">';
-            echo $headerText;
+            echo '<div id="user-info" style="font-family: \'Pacifico\', cursive;">';
+            echo '<a href="profile.php">' . $headerText . '</a>';
             echo '</div>';
             echo '<div id="logout-button">';
-            echo $logoutButton;
+            echo '<a href="logout.php"><i class="fas fa-sign-out-alt"></i></a>';
             echo '</div>';
             echo '</div>';
         } else {
@@ -87,7 +103,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
                 </div>
             </div>
             <div class="items-container" id="item-container">
-                <?php include('../products/items.php'); ?>
+                <?php include('products/items.php'); ?>
             </div>
         </div>
     </div>

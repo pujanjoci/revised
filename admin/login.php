@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username']) && isset($
     <form id="login-form" method="POST" action="">
       <div class="input-container">
         <i class="fas fa-user"></i>
-        <input type="text" id="username" name="username" placeholder="Username" required>
+        <input type="text" id="username" name="username" placeholder="Employee-Id" required>
       </div>
 
       <div class="input-container">
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username']) && isset($
 
 
     <div class="website-link">
-      <p><a href="../user-dashboard/index.php">Go to Website</a></p>
+      <p><a href="../index.php">Go to Website</a></p>
     </div>
   </div>
 </body>

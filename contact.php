@@ -11,9 +11,28 @@ if (!empty($username)) {
     $stmt->execute();
     $stmt->bind_result($email);
     $stmt->fetch();
+
     $stmt->close();
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+
+        $sql = "INSERT INTO contact (name, email, message) VALUES (?, ?, ?)";
+        $stmt = $con->prepare($sql);
+        $stmt->bind_param("sss", $name, $email, $message);
+
+        if ($stmt->execute()) {
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+
+        $stmt->close();
+    }
 }
 ?>
+
 
 <body>
     <div class="contact-container">
@@ -40,7 +59,7 @@ if (!empty($username)) {
             </div>
             <div class="contact-right-side">
                 <div class="contact-topic-text">Leave Review</div>
-                <form action="message.php" method="post" id="contact-form">
+                <form method="post" id="contact-form">
                     <div class="contact-input-box">
                         <input type="text" name="name" placeholder="Enter your name" value="<?php echo htmlspecialchars($username); ?>">
                     </div>
@@ -65,11 +84,13 @@ if (!empty($username)) {
             var emailInput = document.forms["contact-form"]["email"];
             var messageInput = document.forms["contact-form"]["message"];
 
-
             if (nameInput.value === "" || messageInput.value === "") {
-                alert("All Input fields are required .");
+                alert("All input fields are required.");
                 return false;
             }
+
+            // If the form is valid, show a confirmation alert
+            alert("Message sent successfully!");
             document.getElementById("contact-form").submit();
         }
 
@@ -88,4 +109,5 @@ if (!empty($username)) {
             document.getElementById("description-counter").textContent = counterText;
         }
     </script>
+
 </body>

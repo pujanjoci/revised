@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="assets/rachitlogo.png" type="image/png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     <title>Registration Page</title>
@@ -153,7 +154,7 @@
 </head>
 
 <body>
-    <a href="dashboard.php" class="home-icon">
+    <a href="index.php" class="home-icon">
         <i class="fas fa-home"></i>
     </a>
 

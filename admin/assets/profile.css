@@ -1,35 +1,125 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-/* profile.css */
-.profile-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: rgba(159, 159, 159, 0.885);
-    margin-top: 5%;
-    max-width: 50%;
-    margin-left: 25%;
-    border-radius: 25px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 20px;
-}
-
-.profile-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.profile-details {
-    margin-top: 5%;
-    font-size: 18px;
-    font-family: 'Roboto', sans-serif;
-}
+                body {
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #f8f9fa;
+                }
+        
+                .container {
+                    max-width: 800px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background-color: #fff;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    border-radius: 5px;
+                    margin-top: 30px;
+                }
+        
+                .profile-header {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    border-bottom: 1px solid #ccc;
+                    padding-bottom: 20px;
+                }
+        
+                .profile-image {
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin-right: 20px;
+                    border: 2px solid #007bff;
+                }
+        
+                .profile-info {
+                    flex: 1;
+                }
+        
+                .profile-info h1 {
+                    margin: 0;
+                    font-size: 24px;
+                    color: #333;
+                }
+        
+                .profile-info h2 {
+                    margin: 5px 0 0;
+                    font-size: 18px;
+                    color: #555;
+                }
+        
+                .profile-form {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                }
+        
+                .profile-form label {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                    display: block;
+                    color: #333;
+                }
+        
+                .profile-form input[type="text"],
+                .profile-form input[type="email"],
+                .profile-form input[type="password"],
+                .profile-form select {
+                    width: 100%;
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ddd;
+                    border-radius: 3px;
+                    font-size: 16px;
+                    transition: border-color 0.3s;
+                }
+        
+                .profile-form input[type="text"]:focus,
+                .profile-form input[type="email"]:focus,
+                .profile-form input[type="password"]:focus,
+                .profile-form select:focus {
+                    border-color: #007bff;
+                }
+        
+                .profile-form button {
+                    width: 40%;
+                    padding: 12px;
+                    background-color: #007bff;
+                    color: #fff;
+                    border: none;
+                    border-radius: 3px;
+                    cursor: pointer;
+                    font-size: 16px;
+                    transition: background-color 0.3s;
+                    margin: 0 auto;
+                    /* Center the button */
+                    display: block;
+                    /* Make it a block element to center it */
+                }
+        
+                .profile-form button:hover {
+                    background-color: #0056b3;
+                }
+        
+                .drop-area {
+                    width: 100%;
+                    padding: 20px;
+                    border: 2px dashed #ccc;
+                    border-radius: 5px;
+                    text-align: center;
+                    font-size: 18px;
+                    cursor: pointer;
+                    margin-bottom: 20px;
+                    background-color: #fff;
+                    transition: background-color 0.3s;
+                }
+        
+                .drop-area:hover {
+                    background-color: #f8f9fa;
+                }
+        
+                .file-input {
+                    display: none;
+                }

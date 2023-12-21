@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* ,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgba(31, 36, 47, 0.961);
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+#sidebar {
+    max-width: 250px;
+    min-width: 250px;
+    transition: all 0.35s ease-in-out;
+    background-color: rgba(31, 36, 47, 0.961);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.433);
+}
+
+#sidebar.collapsed {
+    margin-left: -250px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+}
+
+.sidebar-logo {
+    text-align: center;
+    padding: 1.15rem 1.5rem;
+    border-bottom: 1px solid #666666;
+    background-color: rgba(0, 26, 255, 0.101);
+}
+
+.sidebar-logo a {
+    color: #e5e5e5;
+}
+
+#logo-image {
+    width: 200px;
+    height: auto;
+}
+
+.sidebar-nav {
+    padding: 0;
+}
+
+.sidebar-header {
+    color: #797979;
+    padding: 1.5rem 1.5rem .375rem;
+}
+
+a.sidebar-link {
+    padding: 1rem 1.625rem;
+    color: #d1d1d1;
+    position: relative;
+    display: block;
+}
+
+.sidebar-link[data-bs-toggle="collapse"]::after { 
+    border: solid;
+    border-width: 0.075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+
+.sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+
+.logout-container {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    position: relative;
+}
+
+a.logout{
+        color: #d1d1d1;
+        display: block;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background-color: #555;
+    color: #d1d1d1;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.logout:hover {
+    transition: background-color 0.3s ease-in-out;
+    color: rgb(108, 108, 108);
+}
+
+nav{
+    background-color: rgba(31, 36, 47, 0.961);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.433);
+}
